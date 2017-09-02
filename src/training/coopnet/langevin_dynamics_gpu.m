@@ -1,5 +1,5 @@
 function syn_mat = langevin_dynamics_fast(config, net, syn_mat)
-% the input syn_mat should be a 4-D matrix
+
 % syn_mat = gpuArray(syn_mat);
 % net = vl_simplenn_move(net, 'gpu') ;
 

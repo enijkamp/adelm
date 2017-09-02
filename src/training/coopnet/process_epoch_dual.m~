@@ -1,7 +1,6 @@
-function  [net1,net2,gen_mats,syn_mats,z] = process_epoch_dual_infer(opts, epoch, net1, net2, config)
+function  [net1,net2,gen_mats,syn_mats,z] = process_epoch_dual(opts, epoch, net1, net2, config)
 
 %% TODO is this fast? we don't want to move nets back and forth between cpu/gpu (en)
-%% GPU (en) %%
 if config.use_gpu
     net1 = vl_simplenn_move(net1, 'gpu') ;
     net2 = vl_simplenn_move(net2, 'gpu') ;
@@ -58,7 +57,6 @@ for t = 1:config.batchSize:size(imdb,4)
         end
     end
 
-
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %% Step 2 update generator mats by descriptor net
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -76,22 +74,15 @@ for t = 1:config.batchSize:size(imdb,4)
         
         %syn_mats(:,:,:,syn_ind) = find_local_min(net1,config,syn_mats(:,:,:,syn_ind));
     end
-    
-    % G1: Y wave - syn_mat
-    % Xj - z
-    % run langevin IG steps to update z
-    z = langevin_dynamics_generator(config, net2, z, syn_mat);
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %% Step 3 learning net1
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
     dydz1 = toGpuArray(zeros(config.dydz_sz1, 'single'), config.use_gpu);
     im = toGpuArray(im);
     dydz1(net1.filterSelected) = net1.selectedLambdas;
     dydz1 = repmat(dydz1,1,1,1,size(im,4));
     
-    res1 = [];
     res1 = vl_simplenn(net1, im, dydz1, res1, ...
         'accumulate', 0, ...
         'disableDropout', 0, ...
@@ -103,8 +94,8 @@ for t = 1:config.batchSize:size(imdb,4)
     dydz_syn = zeros(config.dydz_sz1, 'single');
     dydz_syn(net1.filterSelected) = net1.selectedLambdas;
     dydz_syn = repmat(dydz_syn,1,1,1,config.num_syn);
-
     res_syn = [];
+
     res_syn = vl_simplenn(net1, syn_mats, dydz_syn, res_syn, ...
         'accumulate', 0, ...
         'disableDropout', 0, ...
@@ -113,7 +104,13 @@ for t = 1:config.batchSize:size(imdb,4)
         'sync', opts.sync, ...
         'cudnn', opts.cudnn);
 
-    %% TODO move outside this function (en)
+    % gather and accumulate gradients across labs
+    [net1, ~] = accumulate_gradients1(opts, config.Gamma(epoch), size(im,4), net1, res1, res_syn, config);
+
+    clear res;
+    clear res_syn;
+
+   %% TODO move outside this function (en)
     if ~config.use_gpu || mod(epoch,10) == 0 || epoch == config.nIteration
         gen_mats = gather(syn_mats);
         for k = 1:config.num_syn
@@ -129,7 +126,6 @@ for t = 1:config.batchSize:size(imdb,4)
     %% Step 4: Learning net2
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-    res2 = [];
     res2 = vl_gan(net2, z, syn_mats, res2, ...
         'accumulate', 0, ...
         'disableDropout', 0, ...
@@ -140,6 +136,7 @@ for t = 1:config.batchSize:size(imdb,4)
 
     net1 = accumulate_gradients1(opts, config.Gamma(epoch), size(im,4), net1, res1, res_syn, config);
     net2 = accumulate_gradients2(opts, config.Gamma2(epoch), net2, res2, config);     
+    
 
     real_ref = std(z(:));
     config.real_ref = real_ref;  
@@ -152,14 +149,12 @@ for t = 1:config.batchSize:size(imdb,4)
     fprintf('\n') ;
 end
 
-%% GPU (en) %%
 if config.use_gpu
     net1 = vl_simplenn_move(net1, 'cpu') ;
     net2 = vl_simplenn_move(net2, 'cpu') ;
 end
 
 %% TODO move outside this function (en)
-%% speedup (en) %%
 if config.use_gpu
     if mod(epoch,10) == 0 || epoch == config.nIteration
         save([config.trained_folder,'des_net.mat'],'net1');
@@ -178,7 +173,9 @@ fprintf(' %.2f s (%.1f data/s)', epoch_time, speed) ;
 fprintf('\n') ;
 end
 
+% -------------------------------------------------------------------------
 function [array] = toGpuArray(array, use_gpu)
+% -------------------------------------------------------------------------
 if use_gpu
     array = gpuArray(array);
 end
