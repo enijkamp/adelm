@@ -7,10 +7,6 @@ if config.use_gpu
     net2 = vl_simplenn_move(net2, 'gpu') ;
 end
 
-res1 = [];
-res_syn = [];
-res2 = [];
-
 fprintf('Training: epoch %02d', epoch) ;
 fprintf('\n');
 
@@ -87,7 +83,7 @@ for t = 1:config.batchSize:size(imdb,4)
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     dydz1 = toGpuArray(zeros(config.dydz_sz1, 'single'), config.use_gpu);
-    im = toGpuArray(im);
+    im = toGpuArray(im, config.use_gpu);
     dydz1(net1.filterSelected) = net1.selectedLambdas;
     dydz1 = repmat(dydz1,1,1,1,size(im,4));
     

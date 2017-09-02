@@ -25,13 +25,12 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
 
     z = randn(config.z_sz, 'single');
    
-    %% GPU (en) %%
     if config.use_gpu
         net2 = vl_simplenn_move(net2, 'gpu');
         res = vl_gan(net2, gpuArray(z));
         net2 = vl_simplenn_move(net2, 'cpu');
     else
-        res = vl_gan_cpu(net2, z);
+        res = vl_gan(net2, z);
     end
 
     
@@ -54,7 +53,6 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
     % descriptor net config
     img = randn([config.im_size,config.im_size,3],'single');
     
-    %% GPU (en) %%
     if config.use_gpu
         net1 = vl_simplenn_move(net1, 'gpu') ;
         res = vl_simplenn(net1, gpuArray(img));
@@ -110,7 +108,6 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
     net1.filterSelected = 1:prod(config.dydz_sz1);
     net1.selectedLambdas = ones(1, prod(config.dydz_sz1), 'single');
 
-    %% GPU (en) %%
     if config.use_gpu
         numGpus = 1;
         gpuDevice(numGpus);
@@ -127,7 +124,7 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
     
     loss = zeros(config.nIteration, 1);
     for epoch=1:config.nIteration
-        [net1, net2, gen_mats, syn_mats, z] = process_epoch_dual(opts,epoch,net1,net2,config);
+        [net1, net2, gen_mats, syn_mats, z] = process_epoch_dual_infer(opts,epoch,net1,net2,config);
         loss(epoch) = compute_loss(opts, syn_mats, net2, z, config);
         save([config.trained_folder,'loss.mat'],'loss');
         disp(['Loss: ', num2str(loss(epoch))]);
@@ -143,29 +140,20 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
 end
 
 function loss = compute_loss(opts, syn_mat, net2_cpu, z, config)
-%% GPU (en) %%
+
 if config.use_gpu
     net2 = vl_simplenn_move(net2_cpu, 'gpu');
-    res = [];
-    res = vl_gan(net2, gpuArray(z), gpuArray(syn_mat), res, ...
-        'accumulate', false, ...
-        'disableDropout', true, ...
-        'conserveMemory', opts.conserveMemory, ...
-        'backPropDepth', opts.backPropDepth, ...
-        'sync', opts.sync, ...
-        'cudnn', opts.cudnn) ;
-    loss = gather( mean(reshape(sqrt((res(end).x - syn_mat).^2), [], 1)));
-else
-    res = [];
-    res = vl_gan_cpu(net2_cpu, z, syn_mat, res, ...
-        'accumulate', false, ...
-        'disableDropout', true, ...
-        'conserveMemory', opts.conserveMemory, ...
-        'backPropDepth', opts.backPropDepth, ...
-        'sync', opts.sync, ...
-        'cudnn', opts.cudnn) ;
-    loss = gather( mean(reshape(sqrt((res(end).x - syn_mat).^2), [], 1)));
 end
+res = [];
+res = vl_gan(net2, gpuArray(z), gpuArray(syn_mat), res, ...
+    'accumulate', false, ...
+    'disableDropout', true, ...
+    'conserveMemory', opts.conserveMemory, ...
+    'backPropDepth', opts.backPropDepth, ...
+    'sync', opts.sync, ...
+    'cudnn', opts.cudnn) ;
+loss = gather( mean(reshape(sqrt((res(end).x - syn_mat).^2), [], 1)));
+
 end
 
 function net = initialize_momentum(net)
