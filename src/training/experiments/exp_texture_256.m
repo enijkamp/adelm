@@ -8,14 +8,14 @@ img_size = 256;
 patch_size = 32;
 
 % setup
-use_gpu = 0;
-compile_convnet = 0;
+use_gpu = 1;
+compile_convnet = 1;
 
 root = setup_path();
 setup_convnet(use_gpu, compile_convnet);
 
 % prep
-prefix = [img_name '/' num2str(img_size) '_2/'];
+prefix = [img_name '/' num2str(img_size) '_3/'];
 [config, net1] = train_coop_config(root);
 config = prep_images(config, [root 'data/' img_name '/' num2str(img_size) '/'], patch_size);
 config = prep_dirs(config, prefix);
