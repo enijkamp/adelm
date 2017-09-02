@@ -1,0 +1,5 @@
+#!/bin/bash
+show_accounts
+squeue -u enijkamp
+sbatch exp_texture_2048.sb
+squeue -u enijkamp

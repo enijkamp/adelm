@@ -1,0 +1,5 @@
+show_accounts
+squeue -u enijkamp
+sbatch job.sb
+scancel
+watch -n 1 squeue -u enijkamp
