@@ -1,5 +1,0 @@
-#!/bin/bash
-show_accounts
-squeue -u enijkamp
-sbatch experiment_tex2.sb
-squeue -u enijkamp
