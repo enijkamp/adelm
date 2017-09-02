@@ -21,6 +21,7 @@ config.refsig2 = 1;
 config.s = 0.3;
 config.real_ref = 1;
 config.cap2 = 8;
+config.infer_z = true;
 
 % how many layers to learn
 config.layer_to_learn = 1;
