@@ -76,12 +76,15 @@ function [ELM,min_index] = check_membership(config,des_net,gen_net,ELM,...
         %check if successful diffusion quota for membership is reached
         if max(sum(AD_mem)) >= config.AD_quota
             mem_inds = find(sum(AD_mem)==max(sum(AD_mem)));
+            fprintf('successful diffusion to: %s\n',sprintf('%d ',...
+                                        AD_order(mem_inds)));
             min_index = AD_order(mem_inds(find(AD_bars(mem_inds)==...
                                     min(AD_bars(mem_inds)),1,'first')));            
             fprintf('min sorted to basin %d\n',min_index);
             % if the new min has lower energy than the previous
             % basin rep, it becomes the new basin rep
             if min_en < ELM.min_ens(min_index) && config.update_min_states==1
+                fprintf('basin %d rep updated \n',min_index);
                 ELM.min_ims(:,:,:,min_index) = min_im;
                 ELM.min_z(:,:,:,min_index) = min_z;
                 ELM.min_ens(min_index) = min_en;

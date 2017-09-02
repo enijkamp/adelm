@@ -1,4 +1,19 @@
 function ELM = gen_ADELM(ELM)
+
+    rng(123);
+
+    addpath(fullfile('../viz'));
+    addpath(fullfile('../tools'));
+    addpath(fullfile('../sampling'));
+    addpath(fullfile('../postmapping'));
+    addpath(fullfile('../mapping'));
+    addpath(fullfile('../config'));
+    
+    current_dir = pwd();
+    cd(fullfile('../../matconvnet-1.0-beta16/', 'matlab'));
+    vl_setupnn();
+    %vl_compilenn();
+    cd(current_dir);
   
     if nargin < 1 || isempty(ELM)
         %read in config parameters

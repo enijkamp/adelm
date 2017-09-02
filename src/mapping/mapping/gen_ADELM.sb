@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name="adelm"
+#SBATCH --output="gen_ADELM.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --ntasks-per-node=6
+#SBATCH --export=ALL
+#SBATCH -t 04:00:00
+#SBATCH -A cla173
+
+#ibrun in verbose mode will give binding detail
+
+module load matlab
+matlab -nodisplay -nosplash -nojvm -r "gen_ADELM()"

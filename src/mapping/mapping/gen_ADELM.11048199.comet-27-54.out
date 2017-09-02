@@ -1,0 +1,774 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016b (9.1.0.441655) 64-bit (glnxa64)
+                             September 7, 2016
+
+ 
+For online documentation, see http://www.mathworks.com/support
+For product information, visit www.mathworks.com.
+ 
+
+ELM Step 1 of 70
+----
+Finding local min
+2.21 seconds 
+----
+Checking minimum membership
+new min found (ID 2)
+1.98 seconds 
+----
+
+ELM Step 2 of 70
+----
+Finding local min
+22.70 seconds 
+----
+Checking minimum membership
+new min found (ID 3)
+10.72 seconds 
+----
+
+ELM Step 3 of 70
+----
+Finding local min
+13.85 seconds 
+----
+Checking minimum membership
+new min found (ID 4)
+8.60 seconds 
+----
+
+ELM Step 4 of 70
+----
+Finding local min
+13.90 seconds 
+----
+Checking minimum membership
+new min found (ID 5)
+23.32 seconds 
+----
+
+ELM Step 5 of 70
+----
+Finding local min
+13.00 seconds 
+----
+Checking minimum membership
+new min found (ID 6)
+23.59 seconds 
+----
+
+ELM Step 6 of 70
+----
+Finding local min
+14.74 seconds 
+----
+Checking minimum membership
+new min found (ID 7)
+37.99 seconds 
+----
+
+ELM Step 7 of 70
+----
+Finding local min
+10.09 seconds 
+----
+Checking minimum membership
+new min found (ID 8)
+38.76 seconds 
+----
+
+ELM Step 8 of 70
+----
+Finding local min
+23.31 seconds 
+----
+Checking minimum membership
+new min found (ID 9)
+35.45 seconds 
+----
+
+ELM Step 9 of 70
+----
+Finding local min
+13.90 seconds 
+----
+Checking minimum membership
+successful diffusion to: 5 1 
+min sorted to basin 5
+51.50 seconds 
+----
+
+ELM Step 10 of 70
+----
+Finding local min
+22.50 seconds 
+----
+Checking minimum membership
+successful diffusion to: 1 
+min sorted to basin 1
+74.16 seconds 
+----
+
+ELM Step 11 of 70
+----
+Finding local min
+16.13 seconds 
+----
+Checking minimum membership
+successful diffusion to: 8 
+min sorted to basin 8
+55.77 seconds 
+----
+
+ELM Step 12 of 70
+----
+Finding local min
+14.66 seconds 
+----
+Checking minimum membership
+successful diffusion to: 7 
+min sorted to basin 7
+basin 7 rep updated 
+45.02 seconds 
+----
+
+ELM Step 13 of 70
+----
+Finding local min
+1.67 seconds 
+----
+Checking minimum membership
+new min found (ID 10)
+26.67 seconds 
+----
+
+ELM Step 14 of 70
+----
+Finding local min
+14.42 seconds 
+----
+Checking minimum membership
+new min found (ID 11)
+56.47 seconds 
+----
+
+ELM Step 15 of 70
+----
+Finding local min
+10.60 seconds 
+----
+Checking minimum membership
+successful diffusion to: 3 
+min sorted to basin 3
+basin 3 rep updated 
+51.97 seconds 
+----
+
+ELM Step 16 of 70
+----
+Finding local min
+10.57 seconds 
+----
+Checking minimum membership
+new min found (ID 12)
+68.78 seconds 
+----
+
+ELM Step 17 of 70
+----
+Finding local min
+21.43 seconds 
+----
+Checking minimum membership
+new min found (ID 13)
+72.41 seconds 
+----
+
+ELM Step 18 of 70
+----
+Finding local min
+13.63 seconds 
+----
+Checking minimum membership
+successful diffusion to: 6 
+min sorted to basin 6
+84.01 seconds 
+----
+
+ELM Step 19 of 70
+----
+Finding local min
+19.15 seconds 
+----
+Checking minimum membership
+new min found (ID 14)
+82.27 seconds 
+----
+
+ELM Step 20 of 70
+----
+Finding local min
+1.72 seconds 
+----
+Checking minimum membership
+new min found (ID 15)
+36.05 seconds 
+----
+
+ELM Step 21 of 70
+----
+Finding local min
+2.31 seconds 
+----
+Checking minimum membership
+new min found (ID 16)
+39.44 seconds 
+----
+
+ELM Step 22 of 70
+----
+Finding local min
+14.73 seconds 
+----
+Checking minimum membership
+new min found (ID 17)
+68.91 seconds 
+----
+
+ELM Step 23 of 70
+----
+Finding local min
+17.49 seconds 
+----
+Checking minimum membership
+new min found (ID 18)
+89.27 seconds 
+----
+
+ELM Step 24 of 70
+----
+Finding local min
+15.07 seconds 
+----
+Checking minimum membership
+successful diffusion to: 7 
+min sorted to basin 7
+103.04 seconds 
+----
+
+ELM Step 25 of 70
+----
+Finding local min
+15.81 seconds 
+----
+Checking minimum membership
+successful diffusion to: 5 
+min sorted to basin 5
+83.55 seconds 
+----
+
+ELM Step 26 of 70
+----
+Finding local min
+14.81 seconds 
+----
+Checking minimum membership
+new min found (ID 19)
+81.60 seconds 
+----
+
+ELM Step 27 of 70
+----
+Finding local min
+25.72 seconds 
+----
+Checking minimum membership
+new min found (ID 20)
+119.55 seconds 
+----
+
+ELM Step 28 of 70
+----
+Finding local min
+20.63 seconds 
+----
+Checking minimum membership
+new min found (ID 21)
+117.21 seconds 
+----
+
+ELM Step 29 of 70
+----
+Finding local min
+16.66 seconds 
+----
+Checking minimum membership
+successful diffusion to: 7 
+min sorted to basin 7
+99.59 seconds 
+----
+
+ELM Step 30 of 70
+----
+Finding local min
+0.63 seconds 
+----
+Checking minimum membership
+new min found (ID 22)
+45.73 seconds 
+----
+
+ELM Step 31 of 70
+----
+Finding local min
+22.41 seconds 
+----
+Checking minimum membership
+new min found (ID 23)
+109.78 seconds 
+----
+
+ELM Step 32 of 70
+----
+Finding local min
+16.70 seconds 
+----
+Checking minimum membership
+new min found (ID 24)
+104.49 seconds 
+----
+
+ELM Step 33 of 70
+----
+Finding local min
+17.40 seconds 
+----
+Checking minimum membership
+successful diffusion to: 20 
+min sorted to basin 20
+112.70 seconds 
+----
+
+ELM Step 34 of 70
+----
+Finding local min
+17.22 seconds 
+----
+Checking minimum membership
+new min found (ID 25)
+111.41 seconds 
+----
+
+ELM Step 35 of 70
+----
+Finding local min
+16.66 seconds 
+----
+Checking minimum membership
+successful diffusion to: 24 6 
+min sorted to basin 6
+93.91 seconds 
+----
+
+ELM Step 36 of 70
+----
+Finding local min
+1.98 seconds 
+----
+Checking minimum membership
+new min found (ID 26)
+48.73 seconds 
+----
+
+ELM Step 37 of 70
+----
+Finding local min
+19.79 seconds 
+----
+Checking minimum membership
+successful diffusion to: 9 17 
+min sorted to basin 17
+88.76 seconds 
+----
+
+ELM Step 38 of 70
+----
+Finding local min
+11.73 seconds 
+----
+Checking minimum membership
+successful diffusion to: 7 
+min sorted to basin 7
+99.03 seconds 
+----
+
+ELM Step 39 of 70
+----
+Finding local min
+15.33 seconds 
+----
+Checking minimum membership
+successful diffusion to: 5 1 
+min sorted to basin 5
+94.55 seconds 
+----
+
+ELM Step 40 of 70
+----
+Finding local min
+19.78 seconds 
+----
+Checking minimum membership
+successful diffusion to: 4 
+min sorted to basin 4
+basin 4 rep updated 
+114.33 seconds 
+----
+
+ELM Step 41 of 70
+----
+Finding local min
+14.05 seconds 
+----
+Checking minimum membership
+successful diffusion to: 3 
+min sorted to basin 3
+105.75 seconds 
+----
+
+ELM Step 42 of 70
+----
+Finding local min
+24.23 seconds 
+----
+Checking minimum membership
+new min found (ID 27)
+141.45 seconds 
+----
+
+ELM Step 43 of 70
+----
+Finding local min
+13.78 seconds 
+----
+Checking minimum membership
+new min found (ID 28)
+101.79 seconds 
+----
+
+ELM Step 44 of 70
+----
+Finding local min
+23.34 seconds 
+----
+Checking minimum membership
+new min found (ID 29)
+91.10 seconds 
+----
+
+ELM Step 45 of 70
+----
+Finding local min
+18.74 seconds 
+----
+Checking minimum membership
+new min found (ID 30)
+122.47 seconds 
+----
+
+ELM Step 46 of 70
+----
+Finding local min
+16.15 seconds 
+----
+Checking minimum membership
+new min found (ID 31)
+106.02 seconds 
+----
+
+ELM Step 47 of 70
+----
+Finding local min
+30.07 seconds 
+----
+Checking minimum membership
+successful diffusion to: 31 
+min sorted to basin 31
+basin 31 rep updated 
+164.80 seconds 
+----
+
+ELM Step 48 of 70
+----
+Finding local min
+22.24 seconds 
+----
+Checking minimum membership
+new min found (ID 32)
+129.67 seconds 
+----
+
+ELM Step 49 of 70
+----
+Finding local min
+14.98 seconds 
+----
+Checking minimum membership
+successful diffusion to: 24 6 
+min sorted to basin 24
+basin 24 rep updated 
+112.87 seconds 
+----
+
+ELM Step 50 of 70
+----
+Finding local min
+19.07 seconds 
+----
+Checking minimum membership
+successful diffusion to: 7 
+min sorted to basin 7
+103.35 seconds 
+----
+
+ELM Step 51 of 70
+----
+Finding local min
+15.91 seconds 
+----
+Checking minimum membership
+successful diffusion to: 3 8 
+min sorted to basin 3
+basin 3 rep updated 
+138.54 seconds 
+----
+
+ELM Step 52 of 70
+----
+Finding local min
+13.20 seconds 
+----
+Checking minimum membership
+successful diffusion to: 28 
+min sorted to basin 28
+100.16 seconds 
+----
+
+ELM Step 53 of 70
+----
+Finding local min
+1.63 seconds 
+----
+Checking minimum membership
+new min found (ID 33)
+98.92 seconds 
+----
+
+ELM Step 54 of 70
+----
+Finding local min
+13.59 seconds 
+----
+Checking minimum membership
+new min found (ID 34)
+96.46 seconds 
+----
+
+ELM Step 55 of 70
+----
+Finding local min
+14.79 seconds 
+----
+Checking minimum membership
+successful diffusion to: 28 5 
+min sorted to basin 28
+basin 28 rep updated 
+111.98 seconds 
+----
+
+ELM Step 56 of 70
+----
+Finding local min
+17.54 seconds 
+----
+Checking minimum membership
+new min found (ID 35)
+112.08 seconds 
+----
+
+ELM Step 57 of 70
+----
+Finding local min
+1.03 seconds 
+----
+Checking minimum membership
+new min found (ID 36)
+55.90 seconds 
+----
+
+ELM Step 58 of 70
+----
+Finding local min
+1.69 seconds 
+----
+Checking minimum membership
+new min found (ID 37)
+57.91 seconds 
+----
+
+ELM Step 59 of 70
+----
+Finding local min
+18.30 seconds 
+----
+Checking minimum membership
+successful diffusion to: 18 11 
+min sorted to basin 11
+basin 11 rep updated 
+116.90 seconds 
+----
+
+ELM Step 60 of 70
+----
+Finding local min
+13.75 seconds 
+----
+Checking minimum membership
+successful diffusion to: 8 
+min sorted to basin 8
+150.18 seconds 
+----
+
+ELM Step 61 of 70
+----
+Finding local min
+14.57 seconds 
+----
+Checking minimum membership
+successful diffusion to: 14 
+min sorted to basin 14
+121.06 seconds 
+----
+
+ELM Step 62 of 70
+----
+Finding local min
+36.91 seconds 
+----
+Checking minimum membership
+successful diffusion to: 27 
+min sorted to basin 27
+basin 27 rep updated 
+217.82 seconds 
+----
+
+ELM Step 63 of 70
+----
+Finding local min
+17.60 seconds 
+----
+Checking minimum membership
+successful diffusion to: 5 
+min sorted to basin 5
+basin 5 rep updated 
+118.63 seconds 
+----
+
+ELM Step 64 of 70
+----
+Finding local min
+12.33 seconds 
+----
+Checking minimum membership
+successful diffusion to: 8 3 
+min sorted to basin 3
+141.11 seconds 
+----
+
+ELM Step 65 of 70
+----
+Finding local min
+16.05 seconds 
+----
+Checking minimum membership
+successful diffusion to: 28 5 
+min sorted to basin 28
+basin 28 rep updated 
+118.48 seconds 
+----
+
+ELM Step 66 of 70
+----
+Finding local min
+16.04 seconds 
+----
+Checking minimum membership
+successful diffusion to: 29 
+min sorted to basin 29
+105.27 seconds 
+----
+
+ELM Step 67 of 70
+----
+Finding local min
+20.84 seconds 
+----
+Checking minimum membership
+successful diffusion to: 24 
+min sorted to basin 24
+basin 24 rep updated 
+120.97 seconds 
+----
+
+ELM Step 68 of 70
+----
+Finding local min
+14.62 seconds 
+----
+Checking minimum membership
+new min found (ID 38)
+115.03 seconds 
+----
+
+ELM Step 69 of 70
+----
+Finding local min
+2.81 seconds 
+----
+Checking minimum membership
+new min found (ID 39)
+52.88 seconds 
+----
+
+ELM Step 70 of 70
+----
+Finding local min
+18.40 seconds 
+----
+Checking minimum membership
+new min found (ID 40)
+127.62 seconds 
+----
+
+ans = 
+
+  struct with fields:
+
+            config: [1×1 struct]
+             min_z: [1×1×15×40 single]
+           min_ims: [32×32×3×40 single]
+           min_ens: [1×40 single]
+           min_IDs: [1×40 double]
+         new_chain: 1
+            z_path: [1×1×15×71 double]
+           im_path: [32×32×3×71 double]
+       min_im_path: [32×32×3×71 double]
+        min_z_path: [1×1×15×71 double]
+       min_ID_path: [1×71 double]
+           en_path: [1×71 double]
+       min_en_path: [1×71 double]
+    mins_discarded: 0
+
+>> 

@@ -1,6 +1,6 @@
 function config = gen_ADELM_config(load_nets)
     % .mat files with descriptor and generator nets (load_nets=1 to load)
-    config.ELM_str = 'ivy/56/';
+    config.ELM_str = 'ivy2/512_2/';
     config.net_file = 'nets.mat';
     % digits/ , ivy/224/
     
@@ -11,7 +11,7 @@ function config = gen_ADELM_config(load_nets)
     config.MH_type = 'RW'; % 'RW' (random walk) or 'CW' (component-wise/gibbs)
 
     % parameters for ADELM
-    config.nsteps = 300; % number of ELM iterations
+    config.nsteps = 70; % number of ELM iterations
     config.num_mins = 200; % max number of basins on record
     config.AD_heuristic = '1D_bar'; % 1D linear interpolation '1D_bar'
                                        % or Euclidean dist 'dist'
@@ -24,7 +24,7 @@ function config = gen_ADELM_config(load_nets)
 
     %attraction diffusion
     config.AD_temp = 20; % AD temperature parameter
-    config.alpha = 10000; % AD magnetization strength
+    config.alpha = 1400; % AD magnetization strength
     %4700
     config.max_AD_iter = 5000;  % max iters for AD trial
     config.AD_no_improve = 40; % consecutive iters to stop search
@@ -41,27 +41,27 @@ function config = gen_ADELM_config(load_nets)
     config.bar_checks = 3; % number of AD trials during bar search
         
     % data location
-    config.data_path = '/Users/mitch/Dropbox/coop ADELM/data/';
+    config.data_path = '../../data/';
     % location of Co-op Nets
-    config.net_path = '/Users/mitch/Dropbox/coop ADELM/nets/';
+    config.net_path = '../../nets/';
     % folder for ELM results
-    config.ELM_folder = '/Users/mitch/Dropbox/coop ADELM/maps/';
+    config.ELM_folder = '../../maps/';
     % folder for images in generator space
-    config.im_folder = '/Users/mitch/Dropbox/coop ADELM/ims/';
+    config.im_folder = '../../ims/';
     % folder for ELM Trees
-    config.tree_folder = '/Users/mitch/Dropbox/coop ADELM/trees/';
+    config.tree_folder = '../../trees/';
 
     % create results directory
-    if ~exist('/Users/mitch/Dropbox/coop ADELM/maps/', 'dir')
-        mkdir('/Users/mitch/Dropbox/coop ADELM/maps/')
+    if ~exist('../../maps/', 'dir')
+        mkdir('../../maps/')
     end
 
-    if ~exist('/Users/mitch/Dropbox/coop ADELM/ims/', 'dir')
-        mkdir('/Users/mitch/Dropbox/coop ADELM/ims/')
+    if ~exist('../../ims/', 'dir')
+        mkdir('../../ims/')
     end
     
-    if ~exist('/Users/mitch/Dropbox/coop ADELM/trees/', 'dir')
-        mkdir('/Users/mitch/Dropbox/coop ADELM/trees/')
+    if ~exist('../../trees/', 'dir')
+        mkdir('../../trees/')
     end
     
     if nargin >= 1 && load_nets == 1

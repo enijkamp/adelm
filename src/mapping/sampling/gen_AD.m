@@ -1,5 +1,7 @@
 function [AD_out1,AD_out2] = gen_AD(config,des_net,gen_net,z1,z2,diff_ind)
-    % diff_ind=1 or diff_ind=2 to diffuse between 1to2 or 2to1 only
+    % "THE PERSISTENCE OF MEMORY"
+
+    % diff_ind=1 or diff_ind=2 to diffuse from 1to2 or 2to1 only
     % leave empty to diffuse in both directions
     if nargin < 6 || isempty(diff_ind), diff_ind = [1,2]; end
     
