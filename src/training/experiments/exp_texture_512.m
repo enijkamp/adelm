@@ -8,7 +8,7 @@ img_size = 512;
 patch_size = 32;
 
 % setup
-use_gpu = 1;
+use_gpu = 0;
 compile_convnet = 0;
 
 root = setup_path();
