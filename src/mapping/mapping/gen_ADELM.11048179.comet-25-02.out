@@ -1,0 +1,192 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2016 The MathWorks, Inc.
+                   R2016b (9.1.0.441655) 64-bit (glnxa64)
+                             September 7, 2016
+
+ 
+For online documentation, see http://www.mathworks.com/support
+For product information, visit www.mathworks.com.
+ 
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+In file included from /home/enijkamp/elm/matconvnet-1.0-beta16/matlab/src/bits/impl/imread_libjpeg.cpp:14:0:
+/home/enijkamp/elm/matconvnet-1.0-beta16/matlab/src/bits/impl/imread_helpers.hpp:35:2: warning: #warning "SSSE3 instruction set not enabled. Using slower image conversion routines." [-Wcpp]
+ #warning "SSSE3 instruction set not enabled. Using slower image conversion routines."
+  ^
+
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'g++'.
+MEX completed successfully.
+Building with 'gcc'.
+MEX completed successfully.
+Building with 'gcc'.
+MEX completed successfully.
+Building with 'gcc'.
+MEX completed successfully.
+Building with 'gcc'.
+MEX completed successfully.
+Building with 'gcc'.
+MEX completed successfully.
+Building with 'gcc'.
+MEX completed successfully.
+
+ELM Step 1 of 70
+----
+Finding local min
+13.31 seconds 
+----
+Checking minimum membership
+new min found (ID 2)
+2.95 seconds 
+----
+
+ELM Step 2 of 70
+----
+Finding local min
+12.70 seconds 
+----
+Checking minimum membership
+new min found (ID 3)
+21.59 seconds 
+----
+
+ELM Step 3 of 70
+----
+Finding local min
+20.52 seconds 
+----
+Checking minimum membership
+successful diffusion to: 1 
+min sorted to basin 1
+basin 1 rep updated 
+29.61 seconds 
+----
+
+ELM Step 4 of 70
+----
+Finding local min
+14.25 seconds 
+----
+Checking minimum membership
+successful diffusion to: 2 
+min sorted to basin 2
+basin 2 rep updated 
+33.27 seconds 
+----
+
+ELM Step 5 of 70
+----
+Finding local min
+1.91 seconds 
+----
+Checking minimum membership
+new min found (ID 4)
+10.30 seconds 
+----
+
+ELM Step 6 of 70
+----
+Finding local min
+15.73 seconds 
+----
+Checking minimum membership
+new min found (ID 5)
+22.50 seconds 
+----
+
+ELM Step 7 of 70
+----
+Finding local min
+14.18 seconds 
+----
+Checking minimum membership
+new min found (ID 6)
+28.39 seconds 
+----
+
+ELM Step 8 of 70
+----
+Finding local min
+14.68 seconds 
+----
+Checking minimum membership
+new min found (ID 7)
+34.85 seconds 
+----
+
+ELM Step 9 of 70
+----
+Finding local min
+17.01 seconds 
+----
+Checking minimum membership
+new min found (ID 8)
+34.87 seconds 
+----
+
+ELM Step 10 of 70
+----
+Finding local min
+25.08 seconds 
+----
+Checking minimum membership
+new min found (ID 9)
+49.94 seconds 
+----
+
+ELM Step 11 of 70
+----
+Finding local min
+2.16 seconds 
+----
+Checking minimum membership
+new min found (ID 10)
+32.60 seconds 
+----
+
+ELM Step 12 of 70
+----
+Finding local min
+slurmstepd: *** JOB 11048179 ON comet-25-02 CANCELLED AT 2017-09-01T16:50:29 ***

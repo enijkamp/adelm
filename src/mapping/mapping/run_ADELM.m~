@@ -1,0 +1,69 @@
+function ELM = run_ADELM(ELM)
+
+    %read in config parameters
+    config = ADELM_config;
+    %read in trained network
+    %net_wkspc = load([config.trained_folder,'trained_net_epoch.mat']);
+    des_net = config.des_net;
+    gen_net = config.gen_net;
+    %config.z_sz = [1, 1, size(gen_net.layers{1}.weights{1}, 4)];
+    
+    if nargin < 1 || isempty(ELM)
+        %start chain
+        zstart = randn(config.z_sz,'single');
+        syn_mat = vl_gan_cpu(gen_net,zstart);
+        xstar = floor((syn_mat(end).x+1)*128);
+        %xstar = 256*single(rand(config.im_size));
+        %xstar = single(zeros(config.im_size));
+        %xstar = config.imdb(:,:,:,1);
+        %xstar = config.imdb(:,:,:,2)+config.mean_im;
+        %xstar = single(config.imdb_mean);
+        ELM.xaux = single(repmat(xstar,1,1,length(config.temp_seq)));
+        start_min = find_local_min(net,config,xstar);
+        curr_min_index = 1;
+        
+        %containers for ELM info
+        ELM.new_chain(1) = 1;
+        ELM.z(:,:,:,1) = zstart;
+        ELM.min_z(:,:,:,1) = zstart;
+        ELM.min_visits(1,:) = zeros(1,length(config.energy_levels));
+        ELM.min_visits(1,find(get_energy(net,config,xstar) > config.energy_levels,1,'last'))=1;
+        ELM.min_energys(1) = get_energy(net,config,start_min);
+        ELM.min_states(:,:,1) = start_min;
+        ELM.min_IDs(1) = 1;
+        ELM.min_locs(:,:,1) = start_min;
+        ELM.min_path(1)= 1;
+        ELM.state_path(:,:,1) = xstar;
+        ELM.energys(1) = get_energy(net,config,xstar);
+        ELM.accepted(1) = 1;
+        ELM.xprop(:,:,1) = xstar;
+        ELM.prop_min_path(1) = 1;
+    else
+        if ~isempty(ELM.state_path)
+            ELM.new_chain(end+1) = length(ELM.energys)+1;
+            xstar = ELM.state_path(:,:,end);
+            ELM.xaux = single(repmat(xstar,1,1,length(config.temp_seq)));
+            curr_min_index = find(ELM.min_IDs == ELM.min_path(end),1,'first');
+        else
+            ELM.new_chain(1) = 1;
+            xstar = ELM.min_states(:,:,1);
+            ELM.xaux = single(repmat(xstar,1,1,length(config.temp_seq)));
+            curr_min_index = 1;
+        end
+    end
+    
+    if nargin<2 || mkv~=1, ELM.mkv = 0; end
+    
+    for rep = 1:config.nsteps
+        [xstar,curr_min_index,ELM] = ELM_step(net,config,xstar,curr_min_index,ELM,gen_net);
+        %[xstar,curr_min_index,prop_min,prop_min_index,ELM] = ELM_step_old(net,config,xstar,curr_min_index,ELM);
+        for i = 1:sum(ELM.min_IDs>0)
+            imwrite(ELM.min_states(:,:,i)/256,[config.min_im_folder,'min_im',num2str(i),'.png']);
+        end
+        %if min_path(rep+1) ~= min_path(rep), xaux = repmat(reshape(xstar,[],length(xstar)),num_chains,1); end
+        %if mod(rep,1)==0, if ELM.min_path(rep+1) == 0, break; end; end
+        if mod(rep,1)==0, disp(rep);  disp(ELM.energys(end));disp(get_energy(net,config,ELM.min_locs(:,:,end))); disp(curr_min_index); end
+        if nargin >=3 && test == 1 && test_ind ~= curr_min_index, break; end
+    end
+   
+end
