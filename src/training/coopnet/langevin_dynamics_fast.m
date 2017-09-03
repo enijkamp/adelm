@@ -18,7 +18,7 @@ for t = 1:config.T
     
     % part1: derivative on f(I; w)  part2: gaussian I
     syn_mat = syn_mat + config.Delta * config.Delta / 2 * res(1).dzdx ...  
-        - config.Delta / 2 / config.refsig / config.refsig * syn_mat;
+        - config.Delta * config.Delta / 2 / config.refsig / config.refsig * syn_mat;
     
     % part3: white noise N(0, 1)
     syn_mat = syn_mat + config.Delta * gpuArray(randn(size(syn_mat), 'single'));
