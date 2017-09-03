@@ -14,14 +14,10 @@ compile_convnet = 1;
 root = setup_path();
 setup_convnet(use_gpu, compile_convnet);
 
-% prep
-prefix = [img_name '/' num2str(img_size) '_3/'];
+% config
 [config, net1] = coopnet_config(root);
-config = prep_images(config, [root 'data/' img_name '/' num2str(img_size) '/'], patch_size);
-config = prep_dirs(config, prefix);
 config.use_gpu = use_gpu;
 config.nIteration = 500;
-
 % sampling parameters
 config.num_syn = 32;
 % descriptor net1 parameters
@@ -36,6 +32,11 @@ config.refsig2 = 1;
 config.s = 0.3;
 config.real_ref = 1;
 config.cap2 = 8;
+
+% prep
+prefix = [img_name '/' num2str(img_size) '_3/'];
+config = prep_images(config, [root 'data/' img_name '/' num2str(img_size) '/'], patch_size);
+config = prep_dirs(config, prefix);
 
 % learn
 learn_dual_net(config, net1);
