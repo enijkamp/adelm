@@ -19,6 +19,7 @@ setup_convnet(use_gpu, compile_convnet);
 config.use_gpu = use_gpu;
 config.nIteration = 2;
 config.num_syn = 2;
+config.infer_z = false;
 
 % prep
 prefix = ['main/' num2str(img_size) '/'];
