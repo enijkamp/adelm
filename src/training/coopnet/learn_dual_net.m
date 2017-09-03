@@ -136,7 +136,7 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
         save([config.trained_folder,'des_net.mat'],'net1');
         save([config.trained_folder,'gen_net.mat'],'net2');
         
-        loss(epoch) = compute_loss(opts, syn_mats, net2, z, config);
+        loss(epoch) = compute_loss(opts, syn_mats, net2, z, config.use_gpu);
         save([config.trained_folder,'loss.mat'],'loss');
         disp(['Loss: ', num2str(loss(epoch))]);
     end
@@ -150,20 +150,20 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
 
 end
 
-function loss = compute_loss(opts, syn_mat, net2_cpu, z, config)
+function loss = compute_loss(opts, syn_mat, net2, z, use_gpu)
 
-if config.use_gpu
-    net2 = vl_simplenn_move(net2_cpu, 'gpu');
+if use_gpu
+    net2 = vl_simplenn_move(net2, 'gpu');
 end
 res = [];
-res = vl_gan(net2, gpuArray(z), gpuArray(syn_mat), res, ...
+res = vl_gan(net2, toGpuArray(z, use_gpu), toGpuArray(syn_mat, use_gpu), res, ...
     'accumulate', false, ...
     'disableDropout', true, ...
     'conserveMemory', opts.conserveMemory, ...
     'backPropDepth', opts.backPropDepth, ...
     'sync', opts.sync, ...
     'cudnn', opts.cudnn) ;
-loss = gather( mean(reshape(sqrt((res(end).x - syn_mat).^2), [], 1)));
+loss = gather(mean(reshape(sqrt((res(end).x - syn_mat).^2), [], 1)));
 
 end
 
