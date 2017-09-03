@@ -1,7 +1,7 @@
 function syn_mat = langevin_dynamics(config, net, syn_mat)
 % the input syn_mat should be a 3-D matrix
 dydz = zeros(net.dydz_sz, 'single');
-dydz(net.filterSelected) = net.selectedLambdas;
+%dydz(net.filterSelected) = net.selectedLambdas;
 
 for t = 1:config.T    
     % Leapfrog half-step
