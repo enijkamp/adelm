@@ -1,4 +1,4 @@
-function [config,net_cpu] = train_coop_config(root)
+function [config,net_cpu] = coopnet_config(root)
 
 % num epochs
 config.nIteration = 200;

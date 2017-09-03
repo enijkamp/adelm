@@ -16,7 +16,7 @@ setup_convnet(use_gpu, compile_convnet);
 
 % prep
 prefix = [img_name '/' num2str(img_size) '_1/'];
-[config, net1] = train_coop_config(root);
+[config, net1] = coopnet_config(root);
 config = prep_images(config, [root 'data/' img_name '/' num2str(img_size) '/'], patch_size);
 config = prep_dirs(config, prefix);
 config.use_gpu = use_gpu;

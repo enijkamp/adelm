@@ -7,15 +7,14 @@ compile_convnet = 1;
 use_gpu = 0;
 
 % compile convnet
-if compile_convnet
-    setup_convnet(use_gpu);
-end
+root = setup_path();
+setup_convnet(use_gpu, compile_convnet);
 
 % train coop nets
 for img_size = img_sizes
     % config
     prefix = 'mnist/';
-    [config, net1] = train_coop_config();
+    [config, net1] = coopnet_config(root);
     config.digits = 0:9; %digits to be used in the model
     config.set = 'test'; %train, test, both
     

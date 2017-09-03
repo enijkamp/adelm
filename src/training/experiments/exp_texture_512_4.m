@@ -11,14 +11,14 @@ patch_size = 32;
 use_gpu = 1;
 compile_convnet = 0;
 
-% setup convnet
+root = setup_path();
 setup_convnet(use_gpu, compile_convnet);
 
 
 %% (1) gamma step-wise
 % prep
 prefix = [img_name '/' num2str(img_size) '_4/'];
-[config, net1] = train_coop_config();
+[config, net1] = coopnet_config(root);
 config = prep_images(config, ['../data/' img_name '/' num2str(img_size) '/'], patch_size);
 config = prep_dirs(config, prefix);
 config.use_gpu = use_gpu;

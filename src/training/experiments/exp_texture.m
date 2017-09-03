@@ -25,7 +25,7 @@ end
 for img_size = img_sizes
     % config
     prefix = [img_name '/' num2str(img_size) '/'];
-    [config, net1] = train_coop_config(root);
+    [config, net1] = coopnet_config(root);
     config = prep_dirs(config, prefix);
     config = prep_images(config, [root 'data/' prefix], patch_size);
     config.use_gpu = use_gpu;
