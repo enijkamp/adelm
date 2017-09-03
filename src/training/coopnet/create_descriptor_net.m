@@ -1,4 +1,4 @@
-function net = create_descriptor_net1(net, layer, config)
+function net = create_descriptor_net(net, layer, config)
 
 %parameters for layer initialization
 opts.scale = 1 ;

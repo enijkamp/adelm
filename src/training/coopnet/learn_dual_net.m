@@ -2,11 +2,11 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
     learningTime = tic;
     
     % descriptor
-    net1 = create_descriptor_net1(net1, 1:3, config);
+    net1 = create_descriptor_net(net1, 1:3, config);
     net1.mean_im = config.mean_im;
     
     % generator
-    net2 = create_generator_net2(config);
+    net2 = create_generator_net(config);
  
     % generator net config
     config.z_sz = [1, 1, size(net2.layers{1}.weights{1}, 4)];

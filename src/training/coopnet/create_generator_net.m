@@ -1,4 +1,4 @@
-function net = create_generator_net2(config)
+function net = create_generator_net(config)
 net.layers = [];
 opts.scale = 2 ;
 opts.initBias = 0.1 ;
