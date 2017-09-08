@@ -10,16 +10,16 @@ patch_size = 32;
 
 % setup
 use_gpu = false;
-compile_convnet = true;
+compile_convnet = false;
 root = setup_path();
 setup_convnet(use_gpu, compile_convnet);
 
 % config
 [config, net1] = coopnet_config(root);
 config.use_gpu = use_gpu;
-config.nIteration = 2;
+config.nIteration = 1;
 config.num_syn = 2;
-config.infer_z = false;
+config.infer_z = true;
 
 % prep
 prefix = ['main/' num2str(img_size) '/'];
