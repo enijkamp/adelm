@@ -131,7 +131,7 @@ function [net1,net2,gen_mats,syn_mats] = learn_dual_net(config, net1)
             imwrite((gen_mats(:,:,:,i)+config.mean_im)/256,[config.gen_im_folder,'gen_im',num2str(i),'.png']);
         end
         for k = 1:config.num_syn
-            imwrite((gen_mats(:,:,:,k)+config.mean_im)/256,[config.syn_im_folder,'syn_im',num2str(k),'.png']);
+            imwrite((syn_mats(:,:,:,k)+config.mean_im)/256,[config.syn_im_folder,'syn_im',num2str(k),'.png']);
         end
         save([config.trained_folder,'des_net.mat'],'net1');
         save([config.trained_folder,'gen_net.mat'],'net2');
